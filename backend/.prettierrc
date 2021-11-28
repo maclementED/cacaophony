@@ -1,0 +1,8 @@
+{
+  "printWidth":120,
+    "max-line-length":120,
+    "semi": true,
+    "singleQuote":true,
+    "bracketSameLine":false,
+    "embeddedLanguageFormatting": "auto"
+}
