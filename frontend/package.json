@@ -1,0 +1,164 @@
+{
+  "name": "TODO",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "@craco/craco": "^6.3.0",
+    "@headlessui/react": "^1.4.1",
+    "@tailwindcss/aspect-ratio": "^0.2.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.2",
+    "@types/react": "^17.0.26",
+    "@types/react-dom": "^17.0.9",
+    "dotenv": "^10.0.0",
+    "firebase": "^8.8.0",
+    "form-data": "^4.0.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^4.1.17",
+    "react": "^17.0.2",
+    "react-bootstrap-icons": "^1.5.0",
+    "react-dom": "^17.0.2",
+    "react-maskinput": "^3.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "tslib": "^2.1.0",
+    "typescript": "^4.3.5",
+    "web-vitals": "^2.1.0",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "start": "cross-env TAILWIND_MODE=watch craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .ts,.tsx ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "globals": {
+      "React": "readonly",
+      "JSX": "readonly"
+    },
+    "rules": {
+      "max-len": [
+        1,
+        {
+          "code": 120
+        }
+      ],
+      "semi": [
+        1,
+        "always"
+      ],
+      "react-hooks/exhaustive-deps": "off",
+      "no-console": 1,
+      "constructor-super": 1,
+      "for-direction": 1,
+      "getter-return": 1,
+      "no-async-promise-executor": 1,
+      "no-case-declarations": 1,
+      "no-class-assign": 1,
+      "no-compare-neg-zero": 1,
+      "no-cond-assign": 1,
+      "no-const-assign": 1,
+      "no-constant-condition": 1,
+      "no-control-regex": 1,
+      "no-debugger": 1,
+      "no-delete-var": 1,
+      "no-dupe-args": 1,
+      "no-dupe-class-members": 1,
+      "no-dupe-else-if": 1,
+      "no-dupe-keys": 1,
+      "no-duplicate-case": 1,
+      "no-empty": 1,
+      "no-empty-character-class": 1,
+      "no-empty-pattern": 1,
+      "no-ex-assign": 1,
+      "no-extra-boolean-cast": 1,
+      "no-extra-semi": 1,
+      "no-fallthrough": 1,
+      "no-func-assign": 1,
+      "no-global-assign": 1,
+      "no-import-assign": 1,
+      "no-inner-declarations": 1,
+      "no-invalid-regexp": 1,
+      "no-irregular-whitespace": 1,
+      "no-loss-of-precision": 1,
+      "no-misleading-character-class": 1,
+      "no-mixed-spaces-and-tabs": 1,
+      "no-new-symbol": 1,
+      "no-nonoctal-decimal-escape": 1,
+      "no-obj-calls": 1,
+      "no-octal": 1,
+      "no-prototype-builtins": 1,
+      "no-redeclare": 1,
+      "no-regex-spaces": 1,
+      "no-self-assign": 1,
+      "no-setter-return": 1,
+      "no-shadow-restricted-names": 1,
+      "no-sparse-arrays": 1,
+      "no-this-before-super": 1,
+      "no-undef": 1,
+      "no-unexpected-multiline": 1,
+      "no-unreachable": 1,
+      "no-unsafe-finally": 1,
+      "no-unsafe-negation": 1,
+      "no-unsafe-optional-chaining": 1,
+      "no-unused-labels": 1,
+      "no-useless-backreference": 1,
+      "no-useless-catch": 1,
+      "no-useless-escape": 1,
+      "no-with": 1,
+      "require-yield": 1,
+      "use-isnan": 1,
+      "valid-typeof": 1
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {}
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      ">0.3%",
+      "not dead",
+      "not op_mini all",
+      "not ie 11",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.16",
+    "@types/aos": "^3.0.4",
+    "@types/date-and-time": "^0.13.0",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/tailwindcss": "^2.2.1",
+    "autoprefixer": "^9.8.7",
+    "cross-env": "^7.0.3",
+    "postcss": "^7.0.38",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
+}
