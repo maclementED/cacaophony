@@ -1,7 +1,8 @@
 {
-  "name": "TODO",
+  "name": "cacaophony-frontend",
   "version": "0.1.0",
-  "private": false,
+  "author": "Max-Antoine Clément",
+  "private": true,
   "dependencies": {
     "@craco/craco": "^6.3.0",
     "@headlessui/react": "^1.4.1",
