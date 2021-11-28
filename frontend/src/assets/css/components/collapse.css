@@ -1,0 +1,16 @@
+.collapse-content {
+    transition: max-height .2s,padding .2s !important;
+    max-height: 0 !important;
+
+}
+.collapse-open .collapse-content,
+.collapse:focus:not(.collapse-close) .collapse-content,
+.collapse:not(.collapse-close) input[type='checkbox']:checked ~ .collapse-content {
+  /* Jsp pourquoi il faut mettre ça en pixel */
+  max-height: 600px !important; 
+}
+
+.collapse-title,
+.collapse-content {
+  @apply bg-white !important;
+}

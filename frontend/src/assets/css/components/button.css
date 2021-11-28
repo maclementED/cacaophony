@@ -1,0 +1,21 @@
+.btn-secondary {
+  @apply btn border bg-gray-200 hover:bg-gray-300;
+}
+.btn-dark {
+  @apply btn bg-black text-white ring-black ring-opacity-40;
+}
+.btn-primary {
+  @apply btn bg-teal-500 hover:bg-teal-600 text-white ring-teal-300 ring-opacity-40 border-0 !important;
+}
+.btn-primary-light {
+  @apply btn w-full bg-blue-200 text-blue-600 focus:bg-blue-600 focus:text-white font-bold hover:bg-blue-300;
+}
+.btn-success {
+  @apply btn bg-green-600 hover:bg-green-700 text-white ring-green-600 ring-opacity-40;
+}
+.btn-danger {
+  @apply btn bg-red-600 hover:bg-red-700 text-white ring-red-600 ring-opacity-40;
+}
+.btn-warning {
+  @apply btn bg-yellow-500 hover:bg-yellow-600 ring-yellow-500;
+}

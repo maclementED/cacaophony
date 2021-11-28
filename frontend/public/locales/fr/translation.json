@@ -1,0 +1,26 @@
+{
+    "login": {
+        "login": "Se connecter",
+        "login-with-google": "Se connecter avec Google",
+        "or-login-with-email": "Ou connectez-vous avec votre courriel",
+        "forgot-password": "Mot de passe oublié?",
+        "new-member": "Nouveau membre?",
+        "create-account": "Créer un compte",
+        "wrong-email-or-password":"Mauvais courriel ou mot de passe",
+        "popup-closed":"Vous avez fermé le dialogue trop tôt. Veuillez Réessayer"
+    },
+    "signup": {
+        "register": "S'enregistrer",
+        "signup-with-google": "Se connecter avec Google",
+        "or-signup-with-email": "ou inscrivez-vous avec votre courriel",
+        "confirm-password": "Confirmez votre mot de passe",
+        "button": "Créer votre compte",
+        "already-an-account": "Déjà un compte?",
+        "login": "Connectez-vous"
+    },
+    "common": {
+        "email": "Courriel",
+        "password": "Mot de passe",
+        "unknown-error":"Une erreur inattendue est survenue"
+    }
+}

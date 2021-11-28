@@ -1,0 +1,19 @@
+.table {
+  @apply w-full rounded-lg bg-white mt-4;
+  @apply rounded-lg !important;
+  @apply border !important;
+  @apply border-gray-300 !important;
+  border-collapse: separate;
+}
+thead {
+  @apply bg-gray-50;
+}
+
+th {
+  text-transform: initial !important;
+  @apply text-base !important;
+}
+
+.table th:first-child {
+  position:inherit !important;
+}

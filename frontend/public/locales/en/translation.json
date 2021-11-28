@@ -1,0 +1,27 @@
+{
+    "login": {
+        "login": "Login",
+        "login-with-google": "Login with Google",
+        "or-login-with-email": "or login with your email",
+        "forgot-password":"Forgot password?",
+        "new-member":"New member?",
+        "create-account":"Create an account",
+        "wrong-email-or-password":"Wrong email or password",
+        "popup-closed":"You closed the dialogue too early. Please try Again"
+    },
+    "signup": {
+        "register": "Register",
+        "signup-with-google": "Sign up with Google",
+        "or-signup-with-email": "ou signup with your email",
+        "confirm-password": "Confirm your password",
+        "button": "Create an account",
+        "already-an-account": "Already an account?",
+        "login": "Login",
+        "popup-closed":"You closed the dialogue too early. Please try Again"
+    },
+    "common": {
+        "email": "Email",
+        "password": "Password",
+        "unknown-error":"An unexpected error occurred"
+    }
+}

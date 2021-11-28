@@ -6,8 +6,12 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx,css}',
     "./public/index.html",
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: true, // or 'media' or 'class'
   theme: {
+    colors: {
+      ...colors,
+      gray: colors.gray,
+    },
     extend: {
       animation: {
         'bounce-once': 'bounce-once 0.25s ease-out',
