@@ -26,6 +26,9 @@
   }
 }
 
+:root {
+  @apply dark:text-gray-200
+}
 * {
   font-family: 'Inter', arial, cursive;
   -webkit-font-smoothing: antialiased;

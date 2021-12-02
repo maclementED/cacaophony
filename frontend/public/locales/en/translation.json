@@ -3,11 +3,11 @@
         "login": "Login",
         "login-with-google": "Login with Google",
         "or-login-with-email": "or login with your email",
-        "forgot-password":"Forgot password?",
-        "new-member":"New member?",
-        "create-account":"Create an account",
-        "wrong-email-or-password":"Wrong email or password",
-        "popup-closed":"You closed the dialogue too early. Please try Again"
+        "forgot-password": "Forgot password?",
+        "new-member": "New member?",
+        "create-account": "Create an account",
+        "wrong-email-or-password": "Wrong email or password",
+        "popup-closed": "You closed the dialogue too early. Please try Again"
     },
     "signup": {
         "register": "Register",
@@ -17,11 +17,25 @@
         "button": "Create an account",
         "already-an-account": "Already an account?",
         "login": "Login",
-        "popup-closed":"You closed the dialogue too early. Please try Again"
+        "popup-closed": "You closed the dialogue too early. Please try Again",
+        "confirm-required":"The password confirmation is required",
+        "confirm-match":"The password doesn't match"
+    },
+    "forgot": {
+        "title":"Forgot Password",
+        "send":"Send",
+        "go-back":"Go back to the login page"
     },
     "common": {
         "email": "Email",
         "password": "Password",
-        "unknown-error":"An unexpected error occurred"
+        "unknown-error": "An unexpected error occurred"
+    },
+    "validation": {
+        "is-email": "This is not a valid email",
+        "email-required": "The email is required",
+        "password-required": "The password is required",
+        "password-min": "The password must have a least 8 characters",
+        "password-match": "The password must a least contain an uppercase and a number"
     }
 }

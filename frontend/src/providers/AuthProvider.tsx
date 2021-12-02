@@ -3,18 +3,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { auth } from '../firebase';
 import { APIError } from '../models/APIError';
-import { MoreInfoForm, Role, User, UserDoc } from '../models/User';
+import { User, UserDoc } from '../models/User';
 import { useAlert } from './AlertProvider';
 
 interface AuthContextProps {
   currentUser: firebase.User | null | undefined; // Firebase User
   userDetails: User | null | undefined; // User Document that have additionnal infos
-  role: Role; // User Role
   // eslint-disable-next-line
   authFetch: (url: string, init?: RequestInit | undefined) => Promise<Object>; // Method to fetch with the bearer token
   logout: () => void;
   updateUser: (data: UserDoc) => Promise<boolean>;
-  finishSignup: (data: MoreInfoForm) => Promise<any>;
 }
 
 interface AuthProviderProps {
@@ -24,11 +22,9 @@ interface AuthProviderProps {
 const AuthContext = React.createContext<AuthContextProps>({
   currentUser: undefined,
   userDetails: undefined,
-  role: undefined,
   authFetch: async () => await {},
   logout: () => {},
   updateUser: async () => await false,
-  finishSignup: async () => await false,
 });
 
 export function useAuth() {
@@ -39,7 +35,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>();
   const [userDetails, setUserDetails] = useState<User | null | undefined>(undefined);
   const [loading, setLoading] = useState(true);
-  const [role, setRole] = useState<Role>();
   const { push } = useHistory();
   const { addAlert } = useAlert();
 
@@ -55,22 +50,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       setLoading(true);
 
-      const role = await updateRole();
-      if (role) {
-        await updateUserDetails();
-      }
+      // await updateUserDetails();
 
       setLoading(false);
     };
     init();
   }, [currentUser]);
-
-  const updateRole = () => {
-    return currentUser?.getIdTokenResult(true).then((token) => {
-      setRole(token.claims.role);
-      return token.claims.role;
-    });
-  };
 
   const updateUserDetails = async () => {
     const storageUser: User | null = JSON.parse(localStorage.getItem('userDetails') || 'null');
@@ -134,29 +119,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
   };
 
-  const finishSignup = async (data: MoreInfoForm) => {
-    return await authFetch(`users/${currentUser?.uid}`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(async () => {
-        await updateRole();
-        await updateUserDetails();
-      })
-      .catch(async (error: APIError) => {
-        if (error.error === 'users/already-exist') {
-          await updateRole();
-          await updateUserDetails();
-        }
-        throw error;
-      });
-  };
-
   return (
-    <AuthContext.Provider value={{ authFetch, userDetails, currentUser, role, logout, updateUser, finishSignup }}>
+    <AuthContext.Provider value={{ authFetch, userDetails, currentUser, logout, updateUser }}>
       {!loading && children}
     </AuthContext.Provider>
   );

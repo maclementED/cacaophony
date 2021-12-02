@@ -21,7 +21,7 @@ export default function Field({ name, type = 'text', className, placeHolder, lab
         data-testid={name}
         name={name}
         type={type}
-        className={`form-control ${className}`}
+        className={`form-control dark:bg-gray-700 dark:border-gray-600 ${className}`}
         placeholder={placeHolder}
         {...props}
       />

@@ -22,8 +22,9 @@ export default function Login() {
   const [currentUserLoaded, setCurrentUserLoaded] = useState(false);
   const [error, setError] = useState('');
 
+  // Redirect if the user is already logged in
   useEffect(() => {
-    if (currentUser !== undefined && currentUserLoaded !== true) {
+    if (currentUser !== undefined && currentUserLoaded === false) {
       setCurrentUserLoaded(true);
       if (currentUser) {
         handlePostLogin(currentUser);
@@ -37,12 +38,16 @@ export default function Login() {
     firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password)
-      .then((res) => {
+      .then(() => {
         actions.setSubmitting(false);
       })
       .catch((error) => {
         actions.setSubmitting(false);
-        setError(error.code === 'auth/wrong-password' ? t("login.wrong-email-or-password") : error.message);
+        if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+          setError(t('login.wrong-email-or-password'));
+        } else {
+          setError(t('common.unknown-error'));
+        }
       });
   };
 
@@ -53,9 +58,9 @@ export default function Login() {
       .signInWithPopup(provider)
       .catch((error: firebase.auth.Error) => {
         if (error.code === 'auth/popup-closed-by-user') {
-          setError(t("login.popup-closed"));
+          setError(t('login.popup-closed'));
         } else {
-          setError(t("common.unknown-error"));
+          setError(t('common.unknown-error'));
         }
       });
   };
@@ -72,19 +77,16 @@ export default function Login() {
     if (redirect) {
       history.push(Buffer.from(redirect, 'base64').toString());
     } else {
-      history.push('/workplace');
+      history.push('/workplace/1/1');
     }
   };
 
   const validationScheme = Yup.object().shape({
-    email: Yup.string().email("Ce courriel n'est pas valide").required('Le courriel est obligatoire'),
+    email: Yup.string().email(t('validation.is-email')).required(t('validation.email-required')),
     password: Yup.string()
-      .min(8, 'Le mot de passe doit comporter au moins 8 caractères')
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm,
-        'Le mot de passe doit contenir au moins une majuscule et un chiffre.'
-      )
-      .required('Le mot de passe est obligatoire'),
+      .min(8, t('validation.password-min'))
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm, t('validation.password-match'))
+      .required(t('validation.password-required')),
   });
 
   return (
@@ -92,8 +94,9 @@ export default function Login() {
       <img className="h-28" src="/images/logo.svg" alt="Logo" />
       <h2 className="mt-4 text-4xl font-semibold">{t('login.login')}</h2>
       <div
-        className="mt-4 w-72 md:w-96 flex flex-row whitespace-nowrap border
-        justify-center rounded-full px-6 py-2 cursor-pointer hover:bg-gray-50"
+        className="mt-4 w-72 md:w-96 flex flex-row whitespace-nowrap border bg-white dark:bg-gray-600 
+        dark:hover:bg-gray-700 dark:border-gray-600 justify-center rounded-full px-6 py-2 cursor-pointer 
+        hover:bg-gray-50"
         onClick={signInWithGoogle}
       >
         <img className="mr-2" src="/images/Google.svg" alt="Google logo" />
@@ -102,9 +105,7 @@ export default function Login() {
       <div className="text-red-500 text-center mt-2">{error}</div>
       <div className="flex flex-row items-center justify-around w-72 md:w-96 mt-2 text-gray-400">
         <hr className="w-full" />
-        <span className="text-sm text-gray-400 whitespace-nowrap mx-2">
-          {t('login.or-login-with-email')}
-        </span>
+        <span className="text-sm text-gray-400 whitespace-nowrap mx-2">{t('login.or-login-with-email')}</span>
         <hr className="w-full" />
       </div>
       <div className="w-72 md:w-96 form">
@@ -120,8 +121,8 @@ export default function Login() {
               <Field
                 className="mt-3 mb-1 w-full"
                 type="password"
-                name={t('common.email')}
-                placeholder="Password"
+                name="password"
+                placeholder={t('common.email')}
               ></Field>
               <Link to="/forgot" className="text-teal-500 hover:text-teal-600 hover:underline">
                 {t('login.forgot-password')}
